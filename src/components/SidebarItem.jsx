@@ -14,9 +14,9 @@ import '../styles/SidebarItem.css';
  * 
  * @returns 
  */
-function SidebarItem(props){
-    const selectIcon = (name) => {
-        switch (name.toLowerCase()) {
+function SidebarItem({name}){
+    const selectIcon = (names) => {
+        switch (names.toLowerCase()) {
             case 'home':
                 return <HomeIcon sx={{ color: "#b05353", fontSize: 23 }} />;
             case 'network':
@@ -33,8 +33,8 @@ function SidebarItem(props){
     return(
         <div className="item-container">
 
-            {selectIcon(props.name)}
-            <p className="item-name">{props.name}</p>
+            {selectIcon(name)}
+            <p className="item-name">{name}</p>
         </div>
     );
 }

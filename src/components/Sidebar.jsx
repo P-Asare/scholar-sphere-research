@@ -10,7 +10,7 @@ import SubSidebarItem from './SubSidebarItem';
  */
 
 // TODO: Include props to make stats and other data dynamic
-function Sidebar(){
+function Sidebar({activeSection, setActiveSection}){
 
     const collaborators = [{
         "id": "1",
