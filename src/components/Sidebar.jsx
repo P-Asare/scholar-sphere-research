@@ -30,19 +30,25 @@ function Sidebar(){
 
     return (
         <div className="bar">
-            <p className='header'>Hi, Palal</p> 
-            <div className="tabs">
-                <SidebarItem name="Home" />
-                <SidebarItem name="Network" />
-                <div className="subitems">
-                    <SubSidebarItem name='Following' stats={7}/>
-                    <SubSidebarItem name='Suggested' stats={10}/>
+            <div className="upper-bar">
+                <p className='header'>Hi, Palal</p> 
+                <div className="tabs">
+                    <SidebarItem name="Home" />
+                    <SidebarItem name="Network" />
+                    <div className="subitems">
+                        <SubSidebarItem name='Following' stats={7}/>
+                        <SubSidebarItem name='Suggested' stats={10}/>
+                    </div>
+                    <SidebarItem name="Favorites" />
+                    <SidebarItem name="Project" />
+                    <button className='post-btn'>POST</button>
+                    <Collaborators collaborators={collaborators}/>
                 </div>
-                <SidebarItem name="Favorites" />
-                <SidebarItem name="Project" />
-                <button className='post-btn'>POST</button>
-                <Collaborators collaborators={collaborators}/>
             </div>
+            <div className="lower-bar">
+            <button className='complete-btn'>Complete Project</button>
+            </div>
+            
         </div>
     );
 }
