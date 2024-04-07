@@ -1,0 +1,20 @@
+
+.boxes-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    font-size: 13px;
+}
+
+.select-child{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.select-title{
+    text-align: left;
+    font-weight: 300;
+    margin-bottom: 7px;
+    font-size: 13px;
+    }

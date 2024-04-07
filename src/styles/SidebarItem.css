@@ -1,0 +1,13 @@
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 15px;
+}
+
+.item-name{
+    font-size: 14px;
+    font-weight: 700;
+    color: #b05353;
+}

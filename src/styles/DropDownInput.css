@@ -1,0 +1,26 @@
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.drop-title{
+text-align: left;
+font-weight: 300;
+margin-bottom: 3px;
+font-size: 13px;
+}
+
+.drop-field{
+height: 30px;
+width: 200px;
+margin-bottom: 15px;
+border: 1px solid #b05353;
+border-radius: 4px;
+padding-left: 10px;
+
+}
+
+.drop-field::placeholder {
+    color: #ffffff;
+    font-size: 10px;
+}

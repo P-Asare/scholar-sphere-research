@@ -1,0 +1,18 @@
+
+.sub-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.sub-name {
+    color: #766F6F;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.stats {
+    color: #b05353;
+    font-size: 12px;
+    font-weight: 700;
+}

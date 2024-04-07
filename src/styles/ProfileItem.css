@@ -1,0 +1,50 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-image{
+    background-image: url(../assets/images/login_image_2.jpg);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.follow-name{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.follow-dep{
+    font-size: 9px;
+    font-weight: 100;
+    color: rgba(164, 164, 164, 0.84);
+}
+
+.follow-btn{
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    padding-right: 30px;
+    cursor: pointer;
+}

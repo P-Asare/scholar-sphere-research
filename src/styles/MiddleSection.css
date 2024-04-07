@@ -1,0 +1,12 @@
+
+.main_container{
+    /* background-color: yellow; */
+    /* background-color: green; */
+    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 30px;
+    gap: 12px;
+}

@@ -1,0 +1,27 @@
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+text-align: left;
+font-weight: 300;
+margin-bottom: 3px;
+font-size: 13px;
+}
+
+.field{
+height: 30px;
+width: 200px;
+margin-bottom: 15px;
+border: 1px solid #b05353;
+border-radius: 4px;
+padding-left: 10px;
+
+}
+
+.field::placeholder {
+    color: #9999993c;
+    font-size: 12px;
+}

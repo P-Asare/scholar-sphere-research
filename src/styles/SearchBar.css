@@ -1,0 +1,30 @@
+.searchcontainer{
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0px 5px 20px;
+    width: 90%;
+    height: 20px;
+    border-radius: 7px;
+    border: 1px solid #b05353;
+}
+
+.searchcontainer input{
+    border: none;
+    font-size: 14px;
+}
+
+.searchcontainer input::placeholder{
+    color: rgba(128, 128, 128, 0.637);
+}
+
+.searchcontainer input:focus{
+    outline: none;
+}
+
+#searchicon{
+    color: #b05353;
+    position: absolute;
+    right: 12px;
+}
