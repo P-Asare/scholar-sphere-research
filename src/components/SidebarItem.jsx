@@ -5,16 +5,17 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 import '../styles/SidebarItem.css';
+import { PropaneSharp } from '@mui/icons-material';
 
 /**
  * Component to represent a tab in a sidebar
  * 
- * @param {Object} props 
- * @param {string} props.name
+ * @param {string} name - name of tab
+ * @param {boolean} active - whether tab is active or not
  * 
  * @returns 
  */
-function SidebarItem({name}){
+function SidebarItem({name, active}){
     const selectIcon = (names) => {
         switch (names.toLowerCase()) {
             case 'home':
@@ -34,7 +35,11 @@ function SidebarItem({name}){
         <div className="item-container">
 
             {selectIcon(name)}
-            <p className="item-name">{name}</p>
+            {active ? (
+                <p className="item-name" style={{color: "black"}}>{name}</p>
+            ) : (
+                <p className="item-name">{name}</p>
+            )}
         </div>
     );
 }

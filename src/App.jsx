@@ -11,7 +11,7 @@ import React,{useState} from 'react';
 
 function App() {
 
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState();
 
   return (
     <>
