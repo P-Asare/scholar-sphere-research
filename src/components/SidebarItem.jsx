@@ -15,7 +15,7 @@ import { PropaneSharp } from '@mui/icons-material';
  * 
  * @returns 
  */
-function SidebarItem({name, active}){
+function SidebarItem({name, active, onClick}){
     const selectIcon = (names) => {
         switch (names.toLowerCase()) {
             case 'home':
@@ -32,7 +32,7 @@ function SidebarItem({name, active}){
     };
 
     return(
-        <div className="item-container">
+        <div className="item-container" onClick={onClick}>
 
             {selectIcon(name)}
             {active ? (

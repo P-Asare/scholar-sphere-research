@@ -52,7 +52,7 @@ function Sidebar({activeSection, setActiveSection}){
                         <SubSidebarItem name='Suggested' stats={10}/>
                     </div>
                     <SidebarItem
-                        onClick = {() => console.log("working")} 
+                        onClick = {() => handleSectionChange('favorites')} 
                         name="Favorites"
                         active = {activeSection === "favorites"}
                          
