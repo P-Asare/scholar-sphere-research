@@ -6,11 +6,19 @@ import SubSidebarItem from './SubSidebarItem';
 
 /**
  * Component to represent the left side bar with the tabs
+ * 
+ * @param{boolean}
  * @returns
  */
 
 // TODO: Include props to make stats and other data dynamic
-function Sidebar(){
+function Sidebar({activeSection, setActiveSection}){
+
+        // Change section that is active 
+        const handleSectionChange = (section) => {
+            console.log("testing");
+            setActiveSection(section);      
+        };
 
     const collaborators = [{
         "id": "1",
@@ -30,19 +38,38 @@ function Sidebar(){
 
     return (
         <div className="bar">
-            <p className='header'>Hi, Palal</p> 
-            <div className="tabs">
-                <SidebarItem name="Home" />
-                <SidebarItem name="Network" />
-                <div className="subitems">
-                    <SubSidebarItem name='Following' stats={7}/>
-                    <SubSidebarItem name='Suggested' stats={10}/>
+            <div className="upper-bar">
+                <p className='header'>Hi, Palal</p> 
+                <div className="tabs">
+                    <SidebarItem 
+                        name="Home"
+                        active = {activeSection === "home"}
+                        onClick = {()=>handleSectionChange('home')} 
+                    />
+                    <SidebarItem name="Network" />
+                    <div className="subitems">
+                        <SubSidebarItem name='Following' stats={7}/>
+                        <SubSidebarItem name='Suggested' stats={10}/>
+                    </div>
+                    <SidebarItem
+                        onClick = {() => console.log("working")} 
+                        name="Favorites"
+                        active = {activeSection === "favorites"}
+                         
+                    />
+                    <SidebarItem 
+                        name="Project"
+                        active={activeSection === "project"}
+                        onClick = {() => handleSectionChange('project')}
+                    />
+                    <button className='post-btn'>POST</button>
+                    <Collaborators collaborators={collaborators}/>
                 </div>
-                <SidebarItem name="Favorites" />
-                <SidebarItem name="Project" />
-                <button className='post-btn'>POST</button>
-                <Collaborators collaborators={collaborators}/>
             </div>
+            <div className="lower-bar">
+            <button className='complete-btn'>Complete Project</button>
+            </div>
+            
         </div>
     );
 }

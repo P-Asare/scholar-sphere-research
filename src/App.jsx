@@ -7,8 +7,11 @@ import RightSidebar from './components/RightSidebar';
 import MiddleSection from './components/MiddleSection';
 import PostsProvider from './contexts/PostsProvider';
 import UserProvider from './contexts/UserProvider';
+import React,{useState} from 'react';
 
 function App() {
+
+  const [activeSection, setActiveSection] = useState();
 
   return (
     <>
@@ -21,10 +24,10 @@ function App() {
           {/* <RegisterView /> */}
             
             <div className="first">
-              <Sidebar />
+              <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
             </div>
             <div className="second">
-              <MiddleSection />
+              <MiddleSection activeSection={activeSection} />
             </div>
             <div className="third">
                 <RightSidebar/>

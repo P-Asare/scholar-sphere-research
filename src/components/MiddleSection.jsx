@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { PostsContext } from '../contexts/PostsContext';
 
 
-function MiddleSection(){
+function MiddleSection({activeSection}){
     const {posts} = useContext(PostsContext);
 
     const postsList = posts.map((post) => <UserPost key={post.id} post={post}/>);
