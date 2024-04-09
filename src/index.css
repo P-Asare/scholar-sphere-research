@@ -132,6 +132,7 @@ body {
   padding-right: 30px;
   color: #b05353;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .logo-container {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import InputFields from '../components/InputFields';
-
 
 function LoginView(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // Initialize navigate function
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -30,6 +30,10 @@ function LoginView(){
         setPassword('');
     }
 
+    const handleRegisterClick = () => {
+        navigate('/register'); // Navigate to register page
+    }
+
     return(
         <div className="main-container">
             <div className="image-container"></div>
@@ -44,7 +48,7 @@ function LoginView(){
                         <InputFields label='Password' type='password' val={password} placeholders='password' action={handlePasswordChange} />
                         <p>Minimum of 8 characters with a capital letter and a symbol and number</p>
                         <input style={{cursor: 'pointer'}} className="submit-btn" type="submit" value={'Login'} />
-                    </form>
+                    </form> 
                 </div>
             </div>
         </div>

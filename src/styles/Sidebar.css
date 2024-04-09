@@ -9,9 +9,9 @@
 .bar {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    /* gap: 20px;
     padding-left: 30px;
-    padding-top: 20px;
+    padding-top: 20px; */
     position: sticky;
     /* top: 0; */
     /* position: fixed; */
@@ -20,6 +20,15 @@
     width: 90%;
     height: 100%;
     background-color: white;
+    justify-content: space-between;
+}
+
+.upper-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
 }
 
 .tabs {
@@ -39,6 +48,22 @@
 
 .post-btn {
     width: 50%;
+    margin-top: 25px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #b05353f6;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.lower-bar {
+    padding-left: 40px;
+}
+
+.complete-btn{
+    width: 70%;
     margin-top: 25px;
     border: none;
     padding: 10px 20px;
