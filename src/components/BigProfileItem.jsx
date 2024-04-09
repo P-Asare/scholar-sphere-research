@@ -11,12 +11,6 @@ import {UserContext} from '../contexts/UserContext';
 function BigProfileItem({userId}){
 
     const { users } = useContext(UserContext);
-
-    // Ensure conditions are checked before data retrieval happens
-    if (!users || users.length === 0) {
-        return null;
-    }
-
     const user = users.find(user => user.id === userId);
     
     return(
