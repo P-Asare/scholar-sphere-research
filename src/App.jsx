@@ -1,45 +1,24 @@
 import './App.css'
-import LoginView from './pages/LoginView'
-import Header from './components/Header'
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import HomeView from './pages/HomeView';
+import LoginView from './pages/LoginView';
 import RegisterView from './pages/RegisterView';
-import Sidebar from './components/Sidebar';
-import RightSidebar from './components/RightSidebar';
-import MiddleSection from './components/MiddleSection';
-import PostsProvider from './contexts/PostsProvider';
-import UserProvider from './contexts/UserProvider';
-import React,{useState} from 'react';
+import Header from './components/Header';
 
 function App() {
 
-  const [activeSection, setActiveSection] = useState("home");
-
   return (
     <>
-      <UserProvider>
-      <PostsProvider>
-        <div className="wrapping">
-          <Header />
-          <div className="others">
-            {/* <LoginView /> */}
-          {/* <RegisterView /> */}
-            
-            <div className="first">
-              <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-            </div>
-            <div className="second">
-              <MiddleSection activeSection={activeSection} />
-            </div>
-            <div className="third">
-                <RightSidebar/>
-            </div>
-          </div>
-        
-        </div>
-      </PostsProvider>
-      </UserProvider>
-      
+      <Router>
+      <Header />
+        <Routes>
+          <Route path="/" element={<LoginView />} />
+          <Route path="/register" element={<RegisterView />} />
+          <Route path="/home" element={<HomeView />} />
+        </Routes>
+      </Router>
     </>
   );
 }
 
-export default App
+export default App;

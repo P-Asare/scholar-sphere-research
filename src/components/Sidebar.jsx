@@ -62,12 +62,13 @@ function Sidebar({activeSection, setActiveSection}){
                         active={activeSection === "project"}
                         onClick = {() => handleSectionChange('project')}
                     />
-                    <button className='post-btn'>POST</button>
-                    <Collaborators collaborators={collaborators}/>
+                    {activeSection !== "project" && <button className='post-btn'>POST</button> }
+                    {/* <Collaborators collaborators={collaborators}/> */}
+                    {activeSection === "project" && <Collaborators collaborators={collaborators}/>}
                 </div>
             </div>
             <div className="lower-bar">
-            <button className='complete-btn'>Complete Project</button>
+                {activeSection === "project" && <button className='complete-btn'>Complete Project</button>}
             </div>
             
         </div>
