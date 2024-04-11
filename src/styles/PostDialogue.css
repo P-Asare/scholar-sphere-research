@@ -53,6 +53,10 @@
     cursor: pointer;
 }
 
+.post_btn:hover{
+    background-color: #b05353c2;
+}
+
 .close {
     text-align: right;
     color: #b05353;
