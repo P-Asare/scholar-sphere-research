@@ -5,7 +5,7 @@ import RightSidebar from '../components/RightSidebar';
 import MiddleSection from '../components/MiddleSection';
 import PostsProvider from '../contexts/PostsProvider';
 import UserProvider from '../contexts/UserProvider';
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import PostDialogue from '../components/PostDialogue';
 
 function HomeView() {
