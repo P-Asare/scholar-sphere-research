@@ -1,0 +1,57 @@
+.modal-overlay{
+    background-color: rgba(128, 128, 128, 0.753);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100wh;
+    height: 100vh;
+}
+
+.info_box {
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 5px;
+    padding: 20px ;
+}
+
+.info_box input, textarea{
+    width: 400px;
+}
+
+.info_box textarea{
+    height: 150px;
+    border-color: #b05353;
+    padding: 7px 7px;
+}
+
+.info_box textarea::placeholder{
+    color: rgba(128, 128, 128, 0.514);
+}
+
+.info_box input{
+    height: 25px;
+    border: solid 1px #b05353;
+    padding: 2px 7px;
+}
+
+.post_btn {
+    padding: 8px 0px;
+    color: white;
+    background-color: #b05353;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.close {
+    text-align: right;
+    color: #b05353;
+}

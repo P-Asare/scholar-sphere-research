@@ -6,6 +6,7 @@ import RegisterView from './pages/RegisterView';
 import Header from './components/Header';
 import { useAuth } from './contexts/AuthenticationContext';
 import { UserDataProvider } from './contexts/UserDataContext';
+import PostDialogue from './components/PostDialogue';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+    <PostDialogue />
     <UserDataProvider>
       <Router>
         <Header />
