@@ -26,7 +26,7 @@ function LoginView(){
 
         try {
             // Send request to login endpoint
-            const response = await fetch('http://localhost:80/scholar-sphere/api/actions/login_action.php', {
+            const response = await fetch('http://localhost:80/scholar-sphere/actions/login_action.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ function LoginView(){
             const data = await response.json();
             
             // Store response data in context
-            updateUserData(UserData); 
+            updateUserData(data); 
 
             // Authenticate user
             login();
@@ -60,7 +60,6 @@ function LoginView(){
                 text: 'Invalid email or password',
             });
 
-            navigate('/home'); // TODO: Remove reroute to home
         }
     }
 
