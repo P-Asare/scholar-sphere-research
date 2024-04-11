@@ -19,7 +19,7 @@
     flex-direction: column;
     gap: 8px;
     border-radius: 5px;
-    padding: 20px ;
+    padding: 13px ;
 }
 
 .info_box input, textarea{
@@ -27,13 +27,14 @@
 }
 
 .info_box textarea{
-    height: 150px;
+    height: 100px;
     border-color: #b05353;
     padding: 7px 7px;
 }
 
 .info_box textarea::placeholder{
     color: rgba(128, 128, 128, 0.514);
+    font-size: 13px;
 }
 
 .info_box input{
@@ -49,9 +50,11 @@
     border: none;
     border-radius: 4px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .close {
     text-align: right;
     color: #b05353;
+    cursor: pointer;
 }

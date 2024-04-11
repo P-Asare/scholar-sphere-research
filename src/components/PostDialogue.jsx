@@ -7,7 +7,11 @@ import '../styles/PostDialogue.css'
  * @param {boolean} isOpen 
  * @returns 
  */
-function PostDialogue({isOpen}){
+function PostDialogue({isOpen, setOpen}){
+
+    const handlePostClose = () => {
+        setOpen(!isOpen);
+    }
 
     return(
 
@@ -16,7 +20,7 @@ function PostDialogue({isOpen}){
                 <div className="modal-overlay">
                     <form action="">
                         <div className="info_box">
-                            <p className='close'>X</p>
+                            <p className='close' onClick={handlePostClose}>X</p>
                             <input name='project_name' type="text" value="Project name" />
                             <textarea name='post_content' placeholder='Type post here...'></textarea>
                             <button type='submit' className='post_btn'>Post</button>

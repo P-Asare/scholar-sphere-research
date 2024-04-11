@@ -14,7 +14,6 @@ function App() {
 
   return (
     <>
-    <PostDialogue />
     <UserDataProvider>
       <Router>
         <Header />

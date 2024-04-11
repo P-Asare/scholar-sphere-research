@@ -1,24 +1,29 @@
 
+import { useState } from 'react';
 import '../styles/Sidebar.css';
 import Collaborators from './Collaborators';
 import SidebarItem from "./SidebarItem";
 import SubSidebarItem from './SubSidebarItem';
 
+
 /**
- * Component to represent the left side bar with the tabs
  * 
- * @param{boolean}
- * @returns
+ * @param {string} activeSection - keep track of which page is active
+ * @param {Function} setActiveSection - set the page that is active
+ * @param {Function} showModal - show the dialogue box to take user input 
+ * @returns 
  */
+function Sidebar({activeSection, setActiveSection, showModal}){
+    // TODO: Include props to make stats and other data dynamic
+    
+    // Change section that is active 
+    const handleSectionChange = (section) => {
+        setActiveSection(section);      
+    };
 
-// TODO: Include props to make stats and other data dynamic
-function Sidebar({activeSection, setActiveSection}){
-
-        // Change section that is active 
-        const handleSectionChange = (section) => {
-            console.log("testing");
-            setActiveSection(section);      
-        };
+    const handlePostClick = () => {
+        showModal(true);
+    }
 
     const collaborators = [{
         "id": "1",
@@ -62,7 +67,7 @@ function Sidebar({activeSection, setActiveSection}){
                         active={activeSection === "project"}
                         onClick = {() => handleSectionChange('project')}
                     />
-                    {activeSection !== "project" && <button className='post-btn'>POST</button> }
+                    {activeSection !== "project" && <button onClick={handlePostClick} className='post-btn'>POST</button> }
                     {/* <Collaborators collaborators={collaborators}/> */}
                     {activeSection === "project" && <Collaborators collaborators={collaborators}/>}
                 </div>
