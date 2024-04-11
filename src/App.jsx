@@ -5,6 +5,7 @@ import LoginView from './pages/LoginView';
 import RegisterView from './pages/RegisterView';
 import Header from './components/Header';
 import { useAuth } from './contexts/AuthenticationContext';
+import { UserDataProvider } from './contexts/UserDataContext';
 
 function App() {
 
@@ -12,14 +13,16 @@ function App() {
 
   return (
     <>
+    <UserDataProvider>
       <Router>
-      <Header />
-        <Routes>
-          <Route path="/" element={<LoginView />} />
-          <Route path="/register" element={<RegisterView />} />
-          <Route path='/home' element={isAuthenticated ? <HomeView /> : <Navigate to="/" replace />}/>
-        </Routes>
-      </Router>
+        <Header />
+          <Routes>
+            <Route path="/" element={<LoginView />} />
+            <Route path="/register" element={<RegisterView />} />
+            <Route path='/home' element={isAuthenticated ? <HomeView /> : <Navigate to="/" replace />}/>
+          </Routes>
+        </Router>
+    </UserDataProvider>
     </>
   );
 }

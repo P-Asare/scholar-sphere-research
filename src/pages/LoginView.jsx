@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputFields from '../components/InputFields';
 import Swal from 'sweetalert2';
-import PrivateRoute from "../components/PrivateRoute";
 import { useAuth } from "../contexts/AuthenticationContext";
+import { useUserData } from "../contexts/UserDataContext";
 
 function LoginView(){
 
@@ -11,6 +11,7 @@ function LoginView(){
     const [password, setPassword] = useState('');
     const navigate = useNavigate(); // Initialize navigate function
     const {login} = useAuth();
+    const {updateUserData} = useUserData();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -39,12 +40,11 @@ function LoginView(){
 
             // Assuming the response contains authentication token or user data
             const data = await response.json();
+            
+            // Store response data in context
+            updateUserData(UserData); 
 
-            // Store response data (e.g., authentication token) in local storage or application state
-            // localStorage.setItem('token', data.token);
-            // or store in application state using context or redux
-
-            //TODO: Update authentication state
+            // Authenticate user
             login();
 
             // Redirect user to the home screen
@@ -60,7 +60,6 @@ function LoginView(){
                 text: 'Invalid email or password',
             });
 
-            // login();
             navigate('/home'); // TODO: Remove reroute to home
         }
     }
