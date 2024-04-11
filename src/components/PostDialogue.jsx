@@ -10,7 +10,7 @@ import '../styles/PostDialogue.css'
 function PostDialogue({isOpen, setOpen}){
 
     const handlePostClose = () => {
-        setOpen(!isOpen);
+        setOpen(false);
     }
 
     return(
