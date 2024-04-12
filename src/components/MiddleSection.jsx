@@ -1,10 +1,11 @@
 import '../styles/MiddleSection.css'
 import UserPost from './UserPost';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { PostsContext } from '../contexts/PostsContext';
+import ProjectsView from '../pages/ProjectsView';
 
 
-function MiddleSection({activeSection}){
+function MiddleSection({activeSection, projectData}){
     const {posts} = useContext(PostsContext);
 
     let filteredPosts = posts;
@@ -20,7 +21,7 @@ function MiddleSection({activeSection}){
             {
             (activeSection === "home" && postsList) ||
             (activeSection === "favorites" && <p>Favorite</p>) ||
-            (activeSection === "project" && <p>Project</p>)
+            (activeSection === "project" && <ProjectsView project={projectData} />)
             }
         </div>
     );

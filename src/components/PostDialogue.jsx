@@ -8,9 +8,10 @@ import '../styles/PostDialogue.css'
  * @param {boolean} isOpen 
  * @returns 
  */
-function PostDialogue({isOpen, setOpen}){
+function PostDialogue({isOpen, setOpen, project}){
 
     const [comment, setComment] = useState();
+    const projectId = project && project[0] && project[0].id;
 
     const handleCommentChange = (e) => {
         setComment(e.target.value);
@@ -30,7 +31,10 @@ function PostDialogue({isOpen, setOpen}){
                 headers: {
                     'content-Type': 'application/json'
                 },
-                body: JSON.stringify({comment})
+                body: JSON.stringify({
+                    comment: comment,
+                    project_id: projectId
+                })
             });
 
             if(!response.ok){
@@ -43,9 +47,6 @@ function PostDialogue({isOpen, setOpen}){
 
             // Convert response to json data
             const postResponse = await response.json();
-
-            // write to console state of post
-            console.log(postResponse.message);
 
         } catch (error) {
             console.error('Post error:', error);
@@ -65,7 +66,7 @@ function PostDialogue({isOpen, setOpen}){
                     <form onSubmit={handlePostSubmit}>
                         <div className="info_box">
                             <p className='close' onClick={handlePostClose}>X</p>
-                            <input name='project_name' type="text" defaultValue="Project name" />
+                            <input name='project_name' type="text" defaultValue={project[0].title} readOnly /> {/*TODO: Ensure project name is dynamic/ */}
                             <textarea name='post_content' value={comment} onChange={handleCommentChange} placeholder='Type post here...'></textarea>
                             <button type='submit' className='post_btn'>Post</button>
                         </div>
