@@ -10,7 +10,6 @@ import ProjectDialogue from '../components/ProjectDialogue';
  */
 function ProjectsView({project}){
     const projectItem = project && project[0];
-    console.log(projectItem);
 
     const [open, setOpen] = useState(false);
 
