@@ -1,12 +1,22 @@
-.project-page {
+.project-page, .empty-project-page {
     display: flex;
     flex-direction: column;
     gap: 10px;
     font-size: 14px;
     line-height: 25px;
+    align-items: center;
 }
 
 .project-title{
     font-size: 18px;
     font-weight: 700;
+}
+
+.no-project-text {
+    color: lightgray;
+    font-weight: 800;
+}
+
+.empty-project-page {
+    cursor: pointer;
 }
