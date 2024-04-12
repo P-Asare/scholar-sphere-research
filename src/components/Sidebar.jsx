@@ -6,6 +6,7 @@ import SidebarItem from "./SidebarItem";
 import SubSidebarItem from './SubSidebarItem';
 import { useProjectData } from '../contexts/ProjectDataContext';
 import Swal from 'sweetalert2';
+import { useUserData } from '../contexts/UserDataContext';
 
 
 /**
@@ -19,6 +20,7 @@ function Sidebar({activeSection, setActiveSection, showModal}){
     // TODO: Include props to make stats and other data dynamic
 
     const {projectData, fetchProject} = useProjectData();
+    const { userData, updateUserData} = useUserData();
     
     // Change section that is active 
     const handleSectionChange = (section) => {
@@ -85,7 +87,7 @@ function Sidebar({activeSection, setActiveSection, showModal}){
                 </div>
             </div>
             <div className="lower-bar">
-                {activeSection === "project" && <button className='complete-btn'>Complete Project</button>}
+                {userData && userData.session_data.role === 2 && activeSection === "project" && <button className='complete-btn'>Complete Project</button>}
             </div>
             
         </div>
