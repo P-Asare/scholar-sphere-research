@@ -11,6 +11,7 @@ import '../styles/PostDialogue.css'
 function PostDialogue({isOpen, setOpen, project}){
 
     const [comment, setComment] = useState();
+    const projectId = project && project[0] && project[0].id;
 
     const handleCommentChange = (e) => {
         setComment(e.target.value);
@@ -30,7 +31,10 @@ function PostDialogue({isOpen, setOpen, project}){
                 headers: {
                     'content-Type': 'application/json'
                 },
-                body: JSON.stringify({comment})
+                body: JSON.stringify({
+                    comment: comment,
+                    project_id: projectId
+                })
             });
 
             if(!response.ok){
