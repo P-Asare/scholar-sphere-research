@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import '../styles/PostDialogue.css'
-import { useProjectData } from '../contexts/ProjectDataContext';
 
 /**
  * Component to collect data from users about post
@@ -12,9 +11,6 @@ import { useProjectData } from '../contexts/ProjectDataContext';
 function PostDialogue({isOpen, setOpen, project}){
 
     const [comment, setComment] = useState();
-    // const {projectData, fetchProject} = useProjectData();
-    // const projectTitle = projectData[0].title;
-    console.log(project);
 
     const handleCommentChange = (e) => {
         setComment(e.target.value);
@@ -47,9 +43,6 @@ function PostDialogue({isOpen, setOpen, project}){
 
             // Convert response to json data
             const postResponse = await response.json();
-
-            // write to console state of post
-            console.log(postResponse.message);
 
         } catch (error) {
             console.error('Post error:', error);
