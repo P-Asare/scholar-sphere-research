@@ -22,6 +22,7 @@ function App() {
             <Route path="/" element={<LoginView />} />
             <Route path="/register" element={<RegisterView />} />
             <Route path='/home' element={isAuthenticated ? <HomeView /> : <Navigate to="/" replace />}/>
+            
           </Routes>
       </Router>
     </ProjectDataProvider>

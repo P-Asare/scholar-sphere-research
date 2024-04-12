@@ -6,9 +6,9 @@ import ProjectsView from '../pages/ProjectsView';
 import { useProjectData } from '../contexts/ProjectDataContext';
 
 
-function MiddleSection({activeSection}){
+function MiddleSection({activeSection, projectData}){
     const {posts} = useContext(PostsContext);
-    const { projectData, fetchProject } = useProjectData();
+    // const { projectData, fetchProject } = useProjectData();
 
     let filteredPosts = posts;
     // TODO: Include Favorite context here
@@ -16,11 +16,11 @@ function MiddleSection({activeSection}){
     //     filteredPosts = posts.filter(post => ...);
     // }
 
-    useEffect(() => {
-        if (!projectData) {
-            fetchProject();
-        }
-    }, [projectData, fetchProject]);
+    // useEffect(() => {
+    //     if (!projectData) {
+    //         fetchProject();
+    //     }
+    // }, [projectData, fetchProject]);
 
     const postsList = filteredPosts.map((post) => <UserPost key={post.id} post={post}/>);
 

@@ -20,7 +20,6 @@ export const ProjectDataProvider = ({ children }) => {
         const data = await response.json();
 
         setProjectData(data);
-        console.log(projectData);
 
     } catch (error) {
         console.error('Error fetching project: ', error);

@@ -9,11 +9,12 @@ import { useProjectData } from '../contexts/ProjectDataContext';
  * @param {boolean} isOpen 
  * @returns 
  */
-function PostDialogue({isOpen, setOpen}){
+function PostDialogue({isOpen, setOpen, project}){
 
     const [comment, setComment] = useState();
-    const {projectData, fetchProject} = useProjectData();
+    // const {projectData, fetchProject} = useProjectData();
     // const projectTitle = projectData[0].title;
+    console.log(project);
 
     const handleCommentChange = (e) => {
         setComment(e.target.value);
@@ -68,7 +69,7 @@ function PostDialogue({isOpen, setOpen}){
                     <form onSubmit={handlePostSubmit}>
                         <div className="info_box">
                             <p className='close' onClick={handlePostClose}>X</p>
-                            <input name='project_name' type="text" defaultValue="Testing" readOnly /> {/*TODO: Ensure project name is dynamic/ */}
+                            <input name='project_name' type="text" defaultValue={project[0].title} readOnly /> {/*TODO: Ensure project name is dynamic/ */}
                             <textarea name='post_content' value={comment} onChange={handleCommentChange} placeholder='Type post here...'></textarea>
                             <button type='submit' className='post_btn'>Post</button>
                         </div>

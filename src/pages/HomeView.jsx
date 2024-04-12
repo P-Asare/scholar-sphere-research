@@ -7,17 +7,25 @@ import PostsProvider from '../contexts/PostsProvider';
 import UserProvider from '../contexts/UserProvider';
 import React,{useState, useEffect} from 'react';
 import PostDialogue from '../components/PostDialogue';
+import { useProjectData } from '../contexts/ProjectDataContext';
 
 function HomeView() {
 
   const [activeSection, setActiveSection] = useState("home");
   const [modal, setModal] = useState(false);
+  const {projectData, fetchProject} = useProjectData();
+
+  useEffect(() => {
+    if (!projectData) {
+        fetchProject();
+    }
+  }, [projectData, fetchProject]);
   
   return (
     <>
       <UserProvider>
       <PostsProvider>
-        <PostDialogue isOpen={modal} setOpen={setModal} />
+        <PostDialogue isOpen={modal} setOpen={setModal} project={projectData} />
         <div className="wrapping">
           <div className="others">
             
@@ -25,7 +33,7 @@ function HomeView() {
               <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} showModal={setModal} />
             </div>
             <div className="second">
-              <MiddleSection activeSection={activeSection} />
+              <MiddleSection activeSection={activeSection} projectData={projectData} />
             </div>
             <div className="third">
                 <RightSidebar/>
