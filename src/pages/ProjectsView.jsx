@@ -1,6 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import '../styles/ProjectsView.css';
+import ProjectDialogue from '../components/ProjectDialogue';
 
 /**
  * 
@@ -11,14 +12,23 @@ function ProjectsView({project}){
     const projectItem = project && project[0];
     console.log(projectItem);
 
+    const [open, setOpen] = useState(false);
+
+    const handleOpenCreate = () => {
+        setOpen(!open);
+    }
+
     if(!project || project.length === 0){
         return(
-            <div className="empty-project-page">
+            <>
+            <div className="empty-project-page" onClick={handleOpenCreate}>
                 <AddIcon sx={{fontSize: 40, color: "lightgray"}} />
                 <p className="no-project-text">
                     Create new project
                 </p>
             </div>
+            <ProjectDialogue isOpen={open} setOpen={setOpen} />
+            </>
         );
     }
 
