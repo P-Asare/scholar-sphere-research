@@ -4,6 +4,8 @@ import '../styles/Sidebar.css';
 import Collaborators from './Collaborators';
 import SidebarItem from "./SidebarItem";
 import SubSidebarItem from './SubSidebarItem';
+import { useProjectData } from '../contexts/ProjectDataContext';
+import Swal from 'sweetalert2';
 
 
 /**
@@ -15,6 +17,8 @@ import SubSidebarItem from './SubSidebarItem';
  */
 function Sidebar({activeSection, setActiveSection, showModal}){
     // TODO: Include props to make stats and other data dynamic
+
+    const {projectData, fetchProject} = useProjectData();
     
     // Change section that is active 
     const handleSectionChange = (section) => {
@@ -22,7 +26,17 @@ function Sidebar({activeSection, setActiveSection, showModal}){
     };
 
     const handlePostClick = () => {
-        showModal(true);
+        if (!projectData || Object.keys(projectData).length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please create a project before posting!',
+            });
+        } else {
+            // Proceed with normal functionality
+            showModal(true);
+        }
+        // showModal(true);
     }
 
     const collaborators = [{

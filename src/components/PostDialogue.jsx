@@ -66,7 +66,7 @@ function PostDialogue({isOpen, setOpen, project}){
                     <form onSubmit={handlePostSubmit}>
                         <div className="info_box">
                             <p className='close' onClick={handlePostClose}>X</p>
-                            <input name='project_name' type="text" defaultValue={project[0].title} readOnly /> {/*TODO: Ensure project name is dynamic/ */}
+                            <input name='project_name' type="text" defaultValue={project && project[0].title} readOnly /> {/*TODO: Ensure project name is dynamic/ */}
                             <textarea name='post_content' value={comment} onChange={handleCommentChange} placeholder='Type post here...'></textarea>
                             <button type='submit' className='post_btn'>Post</button>
                         </div>
