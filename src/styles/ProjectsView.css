@@ -1,0 +1,12 @@
+.project-page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.project-title{
+    font-size: 18px;
+    font-weight: 700;
+}

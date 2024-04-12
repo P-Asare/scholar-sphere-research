@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import '../styles/PostDialogue.css'
+import { useProjectData } from '../contexts/ProjectDataContext';
 
 /**
  * Component to collect data from users about post
@@ -11,6 +12,8 @@ import '../styles/PostDialogue.css'
 function PostDialogue({isOpen, setOpen}){
 
     const [comment, setComment] = useState();
+    const {projectData, fetchProject} = useProjectData();
+    // const projectTitle = projectData[0].title;
 
     const handleCommentChange = (e) => {
         setComment(e.target.value);
@@ -65,7 +68,7 @@ function PostDialogue({isOpen, setOpen}){
                     <form onSubmit={handlePostSubmit}>
                         <div className="info_box">
                             <p className='close' onClick={handlePostClose}>X</p>
-                            <input name='project_name' type="text" defaultValue="Project name" />
+                            <input name='project_name' type="text" defaultValue="Testing" readOnly /> {/*TODO: Ensure project name is dynamic/ */}
                             <textarea name='post_content' value={comment} onChange={handleCommentChange} placeholder='Type post here...'></textarea>
                             <button type='submit' className='post_btn'>Post</button>
                         </div>

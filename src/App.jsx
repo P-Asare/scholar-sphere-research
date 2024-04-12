@@ -6,7 +6,7 @@ import RegisterView from './pages/RegisterView';
 import Header from './components/Header';
 import { useAuth } from './contexts/AuthenticationContext';
 import { UserDataProvider } from './contexts/UserDataContext';
-import PostDialogue from './components/PostDialogue';
+import { ProjectDataProvider } from './contexts/ProjectDataContext';
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
   return (
     <>
     <UserDataProvider>
+    <ProjectDataProvider>
       <Router>
         <Header />
           <Routes>
@@ -22,7 +23,8 @@ function App() {
             <Route path="/register" element={<RegisterView />} />
             <Route path='/home' element={isAuthenticated ? <HomeView /> : <Navigate to="/" replace />}/>
           </Routes>
-        </Router>
+      </Router>
+    </ProjectDataProvider>
     </UserDataProvider>
     </>
   );
