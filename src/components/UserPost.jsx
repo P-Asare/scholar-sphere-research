@@ -11,7 +11,6 @@ import axios from 'axios';
  * @returns 
  */
 function UserPost({post}){
-
     
     const [requestSent, setRequestSent] = useState(false);
 
@@ -39,7 +38,7 @@ function UserPost({post}){
 
     return(
         <div className="post-container">
-            <BigProfileItem  userId={post.faculty_id} />
+            <BigProfileItem  userId={post.user_id} />
             <p className='post-content'>{post.comment} </p>
             <div className="lower-section">
                 <div className="left">

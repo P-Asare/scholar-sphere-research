@@ -25,7 +25,7 @@ function BigProfileItem({userId}){
                 <img src='../../src/assets/images/login_image_2.jpg' alt="Profile Image" />
             </div>
             <div className="item_details">
-                <p className="name">him</p>
+                <p className="name">{user && user.fname} {user && user.lname}</p>
                 <p className="is_following">Following</p>
             </div>
         </div>
