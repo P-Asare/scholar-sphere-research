@@ -1,0 +1,69 @@
+.overlay{
+    background-color: rgba(128, 128, 128, 0.753);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100wh;
+    height: 100vh;
+}
+
+.box{
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 5px;
+    padding: 13px ;
+}
+
+.box input, textarea{
+    width: 400px;
+}
+
+.box textarea{
+    height: 100px;
+    border-color: #b05353;
+    padding: 7px 7px;
+}
+
+.box textarea::placeholder{
+    color: rgba(128, 128, 128, 0.514);
+    font-size: 13px;
+}
+
+.box input{
+    height: 25px;
+    border: solid 1px #b05353;
+    padding: 2px 7px;
+}
+
+.box input::placeholder{
+    color: rgba(128, 128, 128, 0.514);
+    font-size: 13px;
+}
+
+.create-btn {
+    padding: 8px 0px;
+    color: white;
+    background-color: #b05353;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-btn:hover{
+    background-color: #b05353c2;
+}
+
+.close-box {
+    text-align: right;
+    color: #b05353;
+    cursor: pointer;
+}
