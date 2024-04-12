@@ -33,7 +33,7 @@ function ProjectsView({project}){
                 </>
             );
         } else { // NO projects and user is a student
-            return null;
+            return (<p className='no-project-text'>You have no projects</p>);
         }
     }
 
