@@ -8,7 +8,7 @@ export const ProjectDataProvider = ({ children }) => {
     const fetchProject = async () => {
     try {
         const response = await fetch('http://localhost:80/scholar-sphere/actions/get_project_action.php', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'content-type':'application/json'
             },
@@ -17,9 +17,14 @@ export const ProjectDataProvider = ({ children }) => {
         if(!response.ok){
             throw new Error('Project fetch failed');
         }
+        // console.log(response.json());
         const data = await response.json();
 
-        setProjectData(data);
+        if (Object.keys(data).length === 0 && data.constructor === Object) {
+            setProjectData(null);
+        } else {
+            setProjectData(data);
+        }
 
     } catch (error) {
         console.error('Error fetching project: ', error);
