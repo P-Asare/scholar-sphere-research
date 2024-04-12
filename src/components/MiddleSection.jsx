@@ -14,7 +14,7 @@ function MiddleSection({activeSection, projectData}){
     //     filteredPosts = posts.filter(post => ...);
     // }
 
-    const postsList = filteredPosts.map((post) => <UserPost key={post.id} post={post}/>);
+    const postsList = filteredPosts.map((post) => <UserPost key={post.post_id} post={post}/>);
 
     return(
         <div className="main_container">

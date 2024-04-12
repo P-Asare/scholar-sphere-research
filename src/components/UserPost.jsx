@@ -39,8 +39,8 @@ function UserPost({post}){
 
     return(
         <div className="post-container">
-            <BigProfileItem  userId={post.userId} />
-            <p className='post-content'>{post.body} </p>
+            <BigProfileItem  userId={post.faculty_id} />
+            <p className='post-content'>{post.comment} </p>
             <div className="lower-section">
                 <div className="left">
                     <BookmarkIcon sx={{color: "#b05353", fontSize: 20}} /> {/*TODO: Include handler to update database on what has been saved*/}
