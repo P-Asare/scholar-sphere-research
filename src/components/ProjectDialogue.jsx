@@ -14,8 +14,6 @@ function ProjectDialogue({isOpen, setOpen}){
     const [projectDescription, setProjectDescription] = useState('');
     const {userData, updateUserData} = useUserData();
 
-    console.log(userData);
-
     const handleCloseBox = () => {
         setOpen(false);
     }
