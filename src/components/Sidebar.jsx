@@ -81,9 +81,9 @@ function Sidebar({activeSection, setActiveSection, showModal}){
                         active={activeSection === "project"}
                         onClick = {() => handleSectionChange('project')}
                     />
-                    {activeSection !== "project" && <button onClick={handlePostClick} className='post-btn'>POST</button> }
+                    {userData && userData.session_data.role == 2 && activeSection !== "project" && <button onClick={handlePostClick} className='post-btn'>POST</button> }
                     {/* <Collaborators collaborators={collaborators}/> */}
-                    {activeSection === "project" && <Collaborators collaborators={collaborators}/>}
+                    {!projectData && userData && userData.session_data.role === 1 && activeSection === "project" && <Collaborators collaborators={collaborators}/>}
                 </div>
             </div>
             <div className="lower-bar">
