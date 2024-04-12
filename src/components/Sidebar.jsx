@@ -33,10 +33,8 @@ function Sidebar({activeSection, setActiveSection, showModal}){
                 text: 'Please create a project before posting!',
             });
         } else {
-            // Proceed with normal functionality
             showModal(true);
         }
-        // showModal(true);
     }
 
     const collaborators = [{

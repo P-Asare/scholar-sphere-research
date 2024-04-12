@@ -17,7 +17,7 @@ export const ProjectDataProvider = ({ children }) => {
         if(!response.ok){
             throw new Error('Project fetch failed');
         }
-        // console.log(response.json());
+    
         const data = await response.json();
 
         if (Object.keys(data).length === 0 && data.constructor === Object) {
