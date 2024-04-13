@@ -8,16 +8,18 @@ import UserProvider from '../contexts/UserProvider';
 import React,{useState, useEffect} from 'react';
 import PostDialogue from '../components/PostDialogue';
 import { useProjectData } from '../contexts/ProjectDataContext';
+import { useUserData } from '../contexts/UserDataContext';
 
 function HomeView() {
 
   const [activeSection, setActiveSection] = useState("home");
   const [modal, setModal] = useState(false);
   const {projectData, fetchProject} = useProjectData();
+  const { userData, updateUserData} = useUserData();
 
   useEffect(() => {
     if (!projectData) {
-        fetchProject();
+        fetchProject(userData.session_data.user_id);
     }
   }, [projectData, fetchProject]);
   

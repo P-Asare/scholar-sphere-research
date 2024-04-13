@@ -5,13 +5,16 @@ const ProjectDataContext = createContext();
 export const ProjectDataProvider = ({ children }) => {
     const [projectData, setProjectData] = useState(null);
 
-    const fetchProject = async () => {
+    const fetchProject = async (userId) => {
     try {
         const response = await fetch('http://localhost:80/scholar-sphere/actions/get_project_action.php', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'content-type':'application/json'
             },
+            body: JSON.stringify({
+                id: userId
+            })
         });
 
         if(!response.ok){
