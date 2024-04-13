@@ -19,18 +19,18 @@ function ColabRequests({projectData}){
         }
         };
         fetchData();
-    }, [fetchRequest, projectData]);
+    }, [projectData, fetchRequest]);
 
     if (!requestData) {
-        return <p>Loading requests...</p>;
+        return <p className='no-data-notice'>Loading requests...</p>;
     }
 
     if (Object.keys(requestData).length === 0) {
-        return <p>No requests</p>;
+        return <p className='no-data-notice'>No requests</p>;
     }
 
     const requestList = Object.entries(requestData).map(([_, request]) => (
-        <ProfileItem key={request.id} follower={request} isright={true} isapplication={true} />
+        <ProfileItem key={Number(request.id)} follower={request} isright={true} isapplication={true} />
     ));
 
     return(

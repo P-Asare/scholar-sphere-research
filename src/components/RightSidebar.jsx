@@ -18,7 +18,7 @@ function RightSidebar({activeSection, projectData}){
                 {results.length > 0 && <SearchResults results={results} />}
                 <FollowerRecommendationProvider>
                     {activeSection == 'project' && <ColabRequests projectData={projectData} />}
-                    {activeSection != 'project' && <SuggestFollowers />}
+                    {/* {activeSection != 'project' && <SuggestFollowers />} */}
                     
                 </FollowerRecommendationProvider>
                 

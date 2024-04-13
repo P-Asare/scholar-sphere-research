@@ -3,7 +3,7 @@ import {createContext, useContext, useState} from 'react';
 const RequestContext = createContext();
 
 export const RequestsProvider = ({children}) => {
-    const [requestData, setRequestData] = useState();
+    const [requestData, setRequestData] = useState({});
 
     const fetchRequest = async (projectId) => {
         try {
@@ -20,7 +20,12 @@ export const RequestsProvider = ({children}) => {
 
             const data = await response.json();
 
-            setRequestData(data);
+            if(data.success === false){
+                setRequestData({});
+            } else {
+                setRequestData(data);
+            }
+            
         } catch (error){
             console.error('Error fetching requests');
         }

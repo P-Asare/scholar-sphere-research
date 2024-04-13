@@ -14,3 +14,8 @@
     font-weight: bold;
     font-size: 12px;
 }
+
+.no-data-notice{
+    margin-top: 30px;
+    color: lightgray;
+}
