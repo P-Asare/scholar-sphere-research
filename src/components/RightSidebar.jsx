@@ -4,9 +4,10 @@ import React, {useState} from 'react';
 import SearchResults from './SearchResults';
 import SuggestFollowers from './SuggestFollowers';
 import FollowerRecommendationProvider from '../contexts/FollowerRecommendationProvider';
+import ColabRequests from './ColabRequests';
 
 
-function RightSidebar(){
+function RightSidebar({activeSection, projectData}){
 
     const [results, setResults] = useState([]);
 
@@ -16,7 +17,9 @@ function RightSidebar(){
                 <SearchBar setResults={setResults} />
                 {results.length > 0 && <SearchResults results={results} />}
                 <FollowerRecommendationProvider>
-                    <SuggestFollowers />
+                    {activeSection == 'project' && <ColabRequests projectData={projectData} />}
+                    {/* {activeSection != 'project' && <SuggestFollowers />} */}
+                    
                 </FollowerRecommendationProvider>
                 
             </div>

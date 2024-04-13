@@ -38,7 +38,7 @@ function HomeView() {
               <MiddleSection activeSection={activeSection} projectData={projectData} />
             </div>
             <div className="third">
-                <RightSidebar/>
+                <RightSidebar activeSection={activeSection} projectData={projectData}/>
             </div>
           </div>
         

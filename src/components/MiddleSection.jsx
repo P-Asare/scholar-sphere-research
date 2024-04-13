@@ -6,7 +6,11 @@ import ProjectsView from '../pages/ProjectsView';
 
 
 function MiddleSection({activeSection, projectData}){
-    const {posts} = useContext(PostsContext);
+    const {posts, fetchPosts} = useContext(PostsContext);
+
+    useEffect(()=>{
+        fetchPosts();
+    }, [fetchPosts]);
 
     let filteredPosts = posts;
     // TODO: Include Favorite context here
