@@ -32,7 +32,7 @@ function HomeView() {
           <div className="others">
             
             <div className="first">
-              <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} showModal={setModal} />
+              <Sidebar projectData={projectData} activeSection={activeSection} setActiveSection={setActiveSection} showModal={setModal} />
             </div>
             <div className="second">
               <MiddleSection activeSection={activeSection} projectData={projectData} />
