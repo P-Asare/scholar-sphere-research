@@ -14,8 +14,8 @@ function ProfileItem({follower, isright, isapplication}){
             <div className="user-details">
                 <div className="profile-image"></div>
                 <div className="profile-details">
-                    <p className="follow-name">{follower.name}</p>
-                    <p className="follow-dep">{follower.username}</p>
+                    <p className="follow-name">{follower.fname} {follower.lname}</p>
+                    <p className="follow-dep">department</p>
                     {isright ? (
                         <p className="follow-btn">Follow</p>
                     ) : (

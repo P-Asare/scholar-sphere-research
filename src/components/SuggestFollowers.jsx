@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import '../styles/SuggestFollowers.css';
 import ProfileItem from './ProfileItem';
 import { FollowerRecommendationContext } from '../contexts/FollowerRecommendationContext';
+import { useRequestData } from '../contexts/RequestsContext';
 
 
 function SuggestFollowers(){
