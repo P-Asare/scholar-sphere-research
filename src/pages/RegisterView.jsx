@@ -1,7 +1,13 @@
 import DropDownInput from "../components/DropDownInput";
 import InputFields from "../components/InputFields";
 import OptionSelection from "../components/OptionSelection";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useProgramData } from "../contexts/ProgramContext";
+import { useRoleData } from "../contexts/RoleContext";
+import { useInterestData } from "../contexts/InterestContext";
+
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 function RegisterView(){
 
@@ -14,6 +20,23 @@ function RegisterView(){
     const [role, setRole] = useState();
     const [program, setProgram] = useState();
     const [interest, setInterest] = useState([]);
+
+    const{ programData, fetchProgram} = useProgramData();
+    const {roleData, fetchRole} = useRoleData();
+    const { interestData, fetchInterest} = useInterestData();
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        fetchProgram();
+        fetchRole();
+        fetchInterest();
+    }, []);
+
+    const validatePassword = (password) => {
+        const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return passwordPattern.test(password);
+    };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -62,38 +85,130 @@ function RegisterView(){
         }
     }
 
-    const handleFormSubmission = (e) => {
-
+    const handleFormSubmission = async (e) => {
         e.preventDefault();
-
-        console.log('working');
-
-        // TODO: Make POST request to submit form details
-        // FIXME: Fix clearance on submission of form
-
-        setConfirmpassword('');
-        setDob('');
-        setEmail('');
-        setFname('');
-        setInterest('');
-        setLname('');
-        setPassword('');
-        setProgram('');
-        setRole('');
-    }
-
-    const roleList = {
-        "1":"Student",
-        "2": "Teacher",
-        "3":"Student",
-        "4": "Teacher",
-        "5":"Student",
-        "6": "Teacher",
-        "7":"Student",
-        "8": "Teacher",
-    }
-
-
+    
+        // Perform input validation
+        if (
+            !email ||
+            !fname ||
+            !lname ||
+            !dob ||
+            !password ||
+            !confirmPassword ||
+            !role ||
+            !program ||
+            interest.length === 0
+        ) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error!',
+                text: 'All fields are required.',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    
+        if (password !== confirmPassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error!',
+                text: 'Passwords do not match.',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    
+        if (!validatePassword(password)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error!',
+                text: 'Password must contain at least one number, one symbol, one lowercase letter, one uppercase letter, and be at least 8 characters long.',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error!',
+                text: 'Invalid email format.',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    
+        // Check if the email ends with "@ashesi.edu.gh"
+        if (!email.endsWith('@ashesi.edu.gh')) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error!',
+                text: 'Email must end with @ashesi.edu.gh.',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    
+        // Prepare the data object to be sent in the POST request
+        const formData = {
+            email,
+            fname,
+            lname,
+            dob,
+            password,
+            'confirm-password': confirmPassword,
+            role,
+            program,
+            interest
+        };
+    
+        try {
+            // Make a POST request to the endpoint with the form data
+            const response = await fetch('http://localhost:80/scholar-sphere/actions/register_action.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+    
+            // Parse the response JSON
+            const data = await response.json();
+    
+            // Handle the response based on success or failure
+            if (response.ok) {
+                console.log('User registered successfully:', data);
+    
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful!',
+                    text: 'You have successfully registered.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    navigate('/home');
+                }).then(() => {
+                    // Clear the form fields upon successful registration
+                    setConfirmpassword('');
+                    setDob('');
+                    setEmail('');
+                    setFname('');
+                    setInterest([]);
+                    setLname('');
+                    setPassword('');
+                    setProgram('');
+                    setRole('');
+                });
+            } else {
+                console.error('Error registering user:', data.message);
+            }
+        } catch (error) {
+            console.error('Error registering user:', error);
+        }
+    };
+    
 
     return(
         <form className="all-form" onSubmit={handleFormSubmission}>
@@ -108,9 +223,9 @@ function RegisterView(){
                 </div>
                 <div className="part-two">
                     <InputFields label="Confirm Password" type="password" placeholders="confirm password" val={confirmPassword} action={handleConfirmpasswordChange}/>
-                    <DropDownInput title="Role" options={roleList} onChange={handleRoleChange} />
-                    <DropDownInput title="Program" options={roleList} onChange={handleProgramchange} />
-                    <OptionSelection options={roleList} onChange={handleInterestChange} />      
+                    <DropDownInput title="Role" options={roleData} onChange={handleRoleChange} />
+                    <DropDownInput title="Program" options={programData} onChange={handleProgramchange} />
+                    <OptionSelection options={interestData} onChange={handleInterestChange} />      
                 </div>
             </div>
             <input style={{cursor: 'pointer'}} className="submit-btn" type="submit" value='Register'/>

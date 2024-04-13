@@ -9,6 +9,9 @@ import { UserDataProvider } from './contexts/UserDataContext';
 import { ProjectDataProvider } from './contexts/ProjectDataContext';
 import { RequestsProvider } from './contexts/RequestsContext';
 import { CollaboratorProvider } from './contexts/CollaboratorContext';
+import { ProgramProvider } from './contexts/ProgramContext';
+import { RoleProvider } from './contexts/RoleContext';
+import { InterestProvider } from './contexts/InterestContext';
 
 function App() {
 
@@ -16,6 +19,9 @@ function App() {
 
   return (
     <>
+    <InterestProvider>
+    <RoleProvider>
+    <ProgramProvider>
     <UserDataProvider>
     <ProjectDataProvider>
       <CollaboratorProvider>
@@ -26,13 +32,15 @@ function App() {
                 <Route path="/" element={<LoginView />} />
                 <Route path="/register" element={<RegisterView />} />
                 <Route path='/home' element={isAuthenticated ? <HomeView /> : <Navigate to="/" replace />}/>
-                
               </Routes>
           </Router>
         </RequestsProvider>
       </CollaboratorProvider>
     </ProjectDataProvider>
     </UserDataProvider>
+    </ProgramProvider>
+    </RoleProvider>
+    </InterestProvider>
     </>
   );
 }

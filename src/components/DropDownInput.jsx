@@ -10,7 +10,7 @@ import '../styles/DropDownInput.css';
 function DropDownInput(props){
 
     const options = props.options;
-    const optionsList = Object.entries(options).map(([key,value]) => <option key={key} value={key}>{value}</option>)
+    const optionsList = Object.entries(options).map(([_,value]) => <option key={value.id} value={value.id}>{value.name}</option>)
 
     const handleSelectChange = (e) => {
         const selectedValue = e.target.value;
