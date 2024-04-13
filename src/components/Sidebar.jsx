@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/Sidebar.css';
 import Collaborators from './Collaborators';
 import SidebarItem from "./SidebarItem";
@@ -7,6 +7,7 @@ import SubSidebarItem from './SubSidebarItem';
 import { useProjectData } from '../contexts/ProjectDataContext';
 import Swal from 'sweetalert2';
 import { useUserData } from '../contexts/UserDataContext';
+import { useCollaboratorData } from '../contexts/CollaboratorContext';
 
 
 /**
@@ -16,11 +17,25 @@ import { useUserData } from '../contexts/UserDataContext';
  * @param {Function} showModal - show the dialogue box to take user input 
  * @returns 
  */
-function Sidebar({activeSection, setActiveSection, showModal}){
+function Sidebar({projectData, activeSection, setActiveSection, showModal}){
     // TODO: Include props to make stats and other data dynamic
 
-    const {projectData, fetchProject} = useProjectData();
+    // const {projectData, fetchProject} = useProjectData();
     const { userData, updateUserData} = useUserData();
+    const { collaboratorData, fetchCollaborators} = useCollaboratorData();
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                if (projectData && projectData.length > 0) {
+                    await fetchCollaborators(projectData[0].id);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+            };
+            fetchData();
+    }, [projectData]);
     
     // Change section that is active 
     const handleSectionChange = (section) => {
@@ -83,8 +98,9 @@ function Sidebar({activeSection, setActiveSection, showModal}){
                     />
                     {userData && userData.session_data.role == 2 && activeSection !== "project" && <button onClick={handlePostClick} className='post-btn'>POST</button> }
                     {/* <Collaborators collaborators={collaborators}/> */}
+                    {console.log(collaboratorData)}
                     {!projectData && userData && userData.session_data.role === 1 && activeSection === "project" && <Collaborators collaborators={collaborators}/>}
-                    {projectData && userData && userData.session_data.role === 2 && activeSection === "project" && <Collaborators collaborators={collaborators}/>}
+                    {projectData && userData && userData.session_data.role === 2 && activeSection === "project" && <Collaborators collaborators={collaboratorData}/>}
                 </div>
             </div>
             <div className="lower-bar">

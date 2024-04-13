@@ -3,7 +3,9 @@ import '../styles/Collaborators.css';
 
 function Collaborators({collaborators}){
 
-    const collaboratorsList = collaborators.map((collaborator) => <ProfileItem key={collaborator.id} follower={collaborator} isright={false} isapplication={false} />);
+    const collaboratorsList = collaborators.map((collaborator) => <ProfileItem key={collaborator.collaborator_id} follower={collaborator} isright={false} isapplication={false} />);
+
+    console.log(collaboratorsList)
 
     return(
         <>
