@@ -44,7 +44,7 @@
 .actions{
     display: flex;
     flex-direction: row;
-    gap: 7px;
+    gap: 20px;
     padding-right: 30px;
     cursor: pointer;
 }
