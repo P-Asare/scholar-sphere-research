@@ -17,10 +17,10 @@ function OptionSelection(props){
         props.onChange(selectedOption);
     }
 
-    const optionsList = Object.entries(options).map(([id, value]) => (
-        <div className='select-child' key={id}>
-            <input className="checkBox" type="checkbox" onChange={handleSelectChange} name="options[]" value={id}/>
-            <p className="box-text">{value}</p>
+    const optionsList = Object.entries(options).map(([_, value]) => (
+        <div className='select-child' key={value.id}>
+            <input className="checkBox" type="checkbox" onChange={handleSelectChange} name="options[]" value={value.id}/>
+            <p className="box-text">{value.name}</p>
         </div>
     ));
 

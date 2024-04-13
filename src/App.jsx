@@ -11,6 +11,7 @@ import { RequestsProvider } from './contexts/RequestsContext';
 import { CollaboratorProvider } from './contexts/CollaboratorContext';
 import { ProgramProvider } from './contexts/ProgramContext';
 import { RoleProvider } from './contexts/RoleContext';
+import { InterestProvider } from './contexts/InterestContext';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <>
+    <InterestProvider>
     <RoleProvider>
     <ProgramProvider>
     <UserDataProvider>
@@ -38,6 +40,7 @@ function App() {
     </UserDataProvider>
     </ProgramProvider>
     </RoleProvider>
+    </InterestProvider>
     </>
   );
 }
