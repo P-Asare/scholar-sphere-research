@@ -11,7 +11,6 @@ import axios from 'axios';
  * @returns 
  */
 function UserPost({post}){
-
     
     const [requestSent, setRequestSent] = useState(false);
 
@@ -39,8 +38,8 @@ function UserPost({post}){
 
     return(
         <div className="post-container">
-            <BigProfileItem  userId={post.userId} />
-            <p className='post-content'>{post.body} </p>
+            <BigProfileItem  userId={post.user_id} />
+            <p className='post-content'>{post.comment} </p>
             <div className="lower-section">
                 <div className="left">
                     <BookmarkIcon sx={{color: "#b05353", fontSize: 20}} /> {/*TODO: Include handler to update database on what has been saved*/}

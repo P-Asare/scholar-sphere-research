@@ -4,12 +4,14 @@
     gap: 10px;
     font-size: 14px;
     line-height: 25px;
-    align-items: center;
+    align-items: left;
 }
 
 .project-title{
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
 .no-project-text {
