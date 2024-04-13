@@ -9,7 +9,7 @@ import '../styles/SearchResults.css';
 function SearchResults(props){
 
     const results = props.results;
-    const resultsList = results.map((result,id) => <div key={id}>{result.name}</div>)
+    const resultsList = results.map((result) => <div key={result.id}>{result.title}</div>)
 
     return(
         <div className="resultsContainer">

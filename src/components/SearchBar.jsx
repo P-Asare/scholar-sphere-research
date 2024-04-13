@@ -13,15 +13,28 @@ function SearchBar(props){
 
     // Fetch data from endpoint for query
     const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
-            .then((json) => {
-                const result = json.filter((proj) => {
-                    return value && proj && proj.name && proj.name.toLowerCase().includes(value); //TODO: change to correct variables in json
-                })
-                props.setResults(result);
+        fetch("http://localhost:80/scholar-sphere/actions/get_all_projects.php", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((json) => {
+            const result = json.filter((proj) => {
+                return value && proj && proj.title && proj.title.toLowerCase().includes(value); //TODO: change to correct variables in json
             });
-    }
+            props.setResults(result);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+        });
+    };
 
     const handleInputChange = (e) => {
         const val = e.target.value;
