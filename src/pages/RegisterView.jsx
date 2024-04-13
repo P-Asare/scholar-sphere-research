@@ -1,7 +1,9 @@
 import DropDownInput from "../components/DropDownInput";
 import InputFields from "../components/InputFields";
 import OptionSelection from "../components/OptionSelection";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useProgramData } from "../contexts/ProgramContext";
+import { useRoleData } from "../contexts/RoleContext";
 
 function RegisterView(){
 
@@ -14,6 +16,14 @@ function RegisterView(){
     const [role, setRole] = useState();
     const [program, setProgram] = useState();
     const [interest, setInterest] = useState([]);
+
+    const{ programData, fetchProgram} = useProgramData();
+    const {roleData, fetchRole} = useRoleData();
+
+    useEffect(()=>{
+        fetchProgram();
+        fetchRole()
+    }, []);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -108,8 +118,8 @@ function RegisterView(){
                 </div>
                 <div className="part-two">
                     <InputFields label="Confirm Password" type="password" placeholders="confirm password" val={confirmPassword} action={handleConfirmpasswordChange}/>
-                    <DropDownInput title="Role" options={roleList} onChange={handleRoleChange} />
-                    <DropDownInput title="Program" options={roleList} onChange={handleProgramchange} />
+                    <DropDownInput title="Role" options={roleData} onChange={handleRoleChange} />
+                    <DropDownInput title="Program" options={programData} onChange={handleProgramchange} />
                     <OptionSelection options={roleList} onChange={handleInterestChange} />      
                 </div>
             </div>
