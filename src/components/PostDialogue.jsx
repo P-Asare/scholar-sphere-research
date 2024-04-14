@@ -26,7 +26,7 @@ function PostDialogue({isOpen, setOpen, project}){
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:80/scholar-sphere/actions/create_post_action.php', {
+            const response = await fetch('https://scholarsphere.asafam.com/actions/create_post_action.php', {
                 method: 'POST',
                 headers: {
                     'content-Type': 'application/json'

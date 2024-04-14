@@ -13,7 +13,7 @@ function SearchBar(props){
 
     // Fetch data from endpoint for query
     const fetchData = (value) => {
-        fetch("http://localhost:80/scholar-sphere/actions/get_all_projects.php", {
+        fetch("https://scholarsphere.asafam.com/actions/get_all_projects.php", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

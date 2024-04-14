@@ -15,7 +15,7 @@ function ProfileItem({follower, isright, isapplication}){
 
     const handlePickClick = async (id, action) => {
         try {
-            const response = await fetch(`http://localhost:80/scholar-sphere/actions/accept_decline_request_action.php?action=${action}&pen_id=${id}`, {
+            const response = await fetch(`https://scholarsphere.asafam.com/actions/accept_decline_request_action.php?action=${action}&pen_id=${id}`, {
                 method: 'GET',
                 headers: {
                     'content-type':'application/json'

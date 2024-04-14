@@ -29,7 +29,7 @@ function UserPost({post}){
         console.log(post.project_id)
 
         try{
-            const response = await fetch('http://localhost:80/scholar-sphere/actions/request_action.php', {
+            const response = await fetch('https://scholarsphere.asafam.com/actions/request_action.php', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

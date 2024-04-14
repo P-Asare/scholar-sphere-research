@@ -31,7 +31,7 @@ function ProjectDialogue({isOpen, setOpen}){
 
         try{
 
-            const response = await fetch('http://localhost:80/scholar-sphere/actions/create_project_action.php', {
+            const response = await fetch('https://scholarsphere.asafam.com/actions/create_project_action.php', {
                 method: 'POST',
                 headers: {
                     'content-Type': 'application/json'
