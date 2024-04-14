@@ -37,8 +37,8 @@ Once the application is running, users can sign up or log in to their accounts. 
 
 ## Deployment
 
-The Scholar Sphere application is deployed and accessible [here](#).
+The Scholar Sphere application is deployed and accessible [here](https://scholarshpere.web.app/).
 
 ## Backend Repository
 
-The backend for Scholar Sphere is implemented using PHP. You can find the repository [here](#).
+The backend for Scholar Sphere is implemented using PHP. You can find the repository [here](https://github.com/P-Asare/scholar-sphere).
