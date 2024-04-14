@@ -22,7 +22,7 @@ function BigProfileItem({userId}){
     return(
         <div className="item_container">
             <div className="item_image">
-                <img src='../../src/assets/images/login_image_2.jpg' alt="Profile Image" />
+                {/* <img src='./assets/images/login_image_2.jpg' alt="Profile Image" /> */}
             </div>
             <div className="item_details">
                 <p className="name">{user && user.fname} {user && user.lname}</p>
