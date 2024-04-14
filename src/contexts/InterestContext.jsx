@@ -7,7 +7,7 @@ export const InterestProvider = ({ children }) => {
 
     const fetchInterest = async () => {
         try {
-            const response = await fetch(`http://localhost:80/scholar-sphere/actions/get_interests.php`, {
+            const response = await fetch(`https://scholarsphere.asafam.com/actions/get_interests.php`, {
                 method: 'GET',
                 headers: {
                     'content-type':'application/json'

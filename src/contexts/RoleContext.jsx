@@ -7,7 +7,7 @@ export const RoleProvider = ({ children }) => {
 
     const fetchRole = async () => {
         try {
-            const response = await fetch(`http://localhost:80/scholar-sphere/actions/get_user_role.php`, {
+            const response = await fetch(`https://scholarsphere.asafam.com/actions/get_user_role.php`, {
                 method: 'GET',
                 headers: {
                     'content-type':'application/json'

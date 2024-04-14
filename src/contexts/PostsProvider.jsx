@@ -11,7 +11,7 @@ const PostsProvider = ({ children }) => {
   
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:80/scholar-sphere/actions/get_posts_action.php');
+        const response = await axios.get('https://scholarsphere.asafam.com/actions/get_posts_action.php');
         // const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
         setPosts(response.data);
       } catch (error) {

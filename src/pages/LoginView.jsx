@@ -27,7 +27,7 @@ function LoginView(){
 
         try {
             // Send request to login endpoint
-            const response = await fetch('http://localhost:80/scholar-sphere/actions/login_action.php', {
+            const response = await fetch('https://scholarsphere.asafam.com/actions/login_action.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

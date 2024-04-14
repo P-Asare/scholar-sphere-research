@@ -167,7 +167,7 @@ function RegisterView(){
     
         try {
             // Make a POST request to the endpoint with the form data
-            const response = await fetch('http://localhost:80/scholar-sphere/actions/register_action.php', {
+            const response = await fetch('https://scholarsphere.asafam.com/actions/register_action.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

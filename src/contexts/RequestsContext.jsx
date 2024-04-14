@@ -7,7 +7,7 @@ export const RequestsProvider = ({children}) => {
 
     const fetchRequest = async (projectId) => {
         try {
-            const response = await fetch(`http://localhost:80/scholar-sphere/actions/get_requests_action.php?pr_id=${projectId}`, {
+            const response = await fetch(`https://scholarsphere.asafam.com/actions/get_requests_action.php?pr_id=${projectId}`, {
                 method: 'GET',
                 headers: {
                     'content-type':'application/json'

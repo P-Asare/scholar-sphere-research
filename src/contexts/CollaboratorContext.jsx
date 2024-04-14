@@ -7,7 +7,7 @@ export const CollaboratorProvider = ({children}) => {
 
     const fetchCollaborators = async (projectId) => {
         try {
-            const response = await fetch(`http://localhost:80/scholar-sphere/actions/get_project_collaborators.php?proj_id=${projectId}`, {
+            const response = await fetch(`https://scholarsphere.asafam.com/actions/get_project_collaborators.php?proj_id=${projectId}`, {
                 method: 'GET',
                 headers: {
                     'content-type':'application/json'

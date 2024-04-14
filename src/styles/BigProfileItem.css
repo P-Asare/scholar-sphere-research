@@ -15,7 +15,7 @@
     width: 58px;
     height: 58px;
     border-radius: 29px;
-    background-image: url('../assets/images/login_image_2.jpg');
+    background-image: url('../assets/images/login_image_2.jpg'); /*TODO:  Check image display*/
 }
 
 .item_details{

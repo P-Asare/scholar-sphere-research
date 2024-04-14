@@ -7,7 +7,7 @@ export const ProjectDataProvider = ({ children }) => {
 
     const fetchProject = async (userId) => {
     try {
-        const response = await fetch('http://localhost:80/scholar-sphere/actions/get_project_action.php', {
+        const response = await fetch('https://scholarsphere.asafam.com/actions/get_project_action.php', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'

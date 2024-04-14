@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
   
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:80/scholar-sphere/actions/get_users_action.php')
+        const response = await axios.get('https://scholarsphere.asafam.com/actions/get_users_action.php')
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
